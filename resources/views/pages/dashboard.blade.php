@@ -16,34 +16,37 @@
             </div>
         </div>
         <div class="col-12">
-          <form class="form-sidebar" id="search-global-form" action="{{URL('/result')}}">
-            <input class="form-sidebar__input form-control" name="cari" type="text" placeholder="a" />
-            <button class="form-sidebar__btn"><i class="icon stroke icon-Search text-primary"></i>
-            </button>
-        </form>
             <div class="row">
-                <div class="col-md-4 col-12">
+                <div class="col-md-3 col-12">
                     <div class="card mb-3" >
                         <div class="card-body text-center">
                           <!-- <i class='bx bx-dollar-circle bx-lg'></i> -->
-                          <h5 class="card-title tex">Jarak</h5>
-                          <p class="card-text" id="ceksensor"><span id="p"></span></p>
+                          <h5 class="card-title tex">pH</h5>
+                          <p class="card-text" id="ceksensor"><span id="ph"></span></p>
                         </div>
                       </div>
                 </div>
-                <div class="col-md-4 col-12">
+                <div class="col-md-3 col-12">
                     <div class="card mb-3" >
                         <div class="card-body text-center">
-                          <h5 class="card-title">Penghasilan</h5>
-                          <p class="card-text">Rp 2.000.000</p>
+                          <h5 class="card-title">Kekeruhan</h5>
+                          <p class="card-text"><span id="keruh"></span></p>
                         </div>
                       </div>
                 </div>
-                <div class="col-md-4 col-12">
+                <div class="col-md-3 col-12">
                     <div class="card  mb-3" >
                         <div class="card-body text-center">
-                          <h5 class="card-title">Transaksi</h5>
-                          <p class="card-text">1.000</p>
+                          <h5 class="card-title">Suhu</h5>
+                          <p class="card-text"><span id="suhu"></span>0</p>
+                        </div>
+                      </div>
+                </div>
+                <div class="col-md-3 col-12">
+                    <div class="card  mb-3" >
+                        <div class="card-body text-center">
+                          <h5 class="card-title">Tinggi Air</h5>
+                          <p class="card-text"><span id="tinggi"></span></p>
                         </div>
                       </div>
                 </div>
@@ -77,18 +80,67 @@
     var vid = $( "#ceksensor" ).val();
     var request = function () {
     $.ajax({
-          url: '/newSensor',
+          url: '/fresh_ph',
           type: "Get",
           data:{id:$("#ceksensor").val()}, // the value of input having id vid
            success: function(response){ // What to do if we succeed
             // $("#p").val(response.nilai_sensor); 
-            $("#p").html(response).show();
+            $("#ph").html(response).show();
             console.log(response)
            }
         });
     
       };  setInterval(request, 1000);
 </script>
+<script type="text/javascript">
+    var vid = $( "#ceksensor" ).val();
+    var request = function () {
+    $.ajax({
+          url: '/fresh_suhu',
+          type: "Get",
+          data:{id:$("#ceksensor").val()}, // the value of input having id vid
+           success: function(response){ // What to do if we succeed
+            // $("#p").val(response.nilai_sensor); 
+            $("#suhu").html(response).show();
+            console.log(response)
+           }
+        });
+    
+      };  setInterval(request, 1000);
+</script>
+<script type="text/javascript">
+    var vid = $( "#ceksensor" ).val();
+    var request = function () {
+    $.ajax({
+          url: '/fresh_keruh',
+          type: "Get",
+          data:{id:$("#ceksensor").val()}, // the value of input having id vid
+           success: function(response){ // What to do if we succeed
+            // $("#p").val(response.nilai_sensor); 
+            $("#keruh").html(response).show();
+            console.log(response)
+           }
+        });
+    
+      };  setInterval(request, 1000);
+</script>
+<script type="text/javascript">
+    var vid = $( "#ceksensor" ).val();
+    var request = function () {
+    $.ajax({
+          url: '/fresh_tinggi',
+          type: "Get",
+          data:{id:$("#ceksensor").val()}, // the value of input having id vid
+           success: function(response){ // What to do if we succeed
+            // $("#p").val(response.nilai_sensor); 
+            $("#tinggi").html(response).show();
+            console.log(response)
+           }
+        });
+    
+      };  setInterval(request, 1000);
+</script>
+
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
         var jarak1 = <?php echo $jarak1; ?>;

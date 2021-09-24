@@ -21,4 +21,7 @@ Route::get('/', function () {
 //     return view('pages.dashboard');
 // });    
 Route::get('/tes', [sensorControl::class, 'index'])->name('dashboard');
-Route::get('/newSensor', [sensorControl::class, 'nilai_sensor'])->name('dashboard');
+Route::get('/fresh_suhu', [sensorControl::class, 'fresh_suhu']);
+Route::get('/fresh_keruh', [sensorControl::class, 'fresh_keruh']);
+Route::get('/fresh_tinggi', [sensorControl::class, 'fresh_tinggi']);
+Route::get('/fresh_ph', [sensorControl::class, 'fresh_ph']);

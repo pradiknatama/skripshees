@@ -23,6 +23,12 @@ body{
     padding: 6px 14px;
     transition: all 0.5s ease;
 }
+.sidebar h1{
+    padding-top: 10px;
+    padding-left: 10px;
+    font-size: 24px;
+    color: #0c0d36;
+}
 .sidebar.active{
     width:240px ;
 }
@@ -132,10 +138,10 @@ body{
     background: #f5f5fb;
 }
 .card{
-    border-radius: 10px ; 
+    /* border-radius: 10px ;  */
     background: #fefefe;
     box-shadow: 0px 4px 15px #068EAC;
-    border-radius: 8px;
+    border-radius: 20px;
     border-style: solid;
   border-color: #068EAC;
     /* border: none; */
@@ -154,8 +160,13 @@ body{
       color: #0c0d36;
 }
 .card #curve_chart{
-    width: 100%;
+    padding-left: 150px;
+    width: 90%;
     height: 500px;
+    border-radius: 10px;
+}
+#curve_chart{
+    /* padding: 10px; */
 }
 
 @media(max-width:991px){
@@ -166,6 +177,7 @@ body{
         font-size: 20px;
     }
     .card #curve_chart{
+        padding-left: 0px;
         width: 100%;
         height: 300px;
     }
