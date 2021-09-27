@@ -15,7 +15,7 @@ class CreateSensorTable extends Migration
     {
         Schema::create('sensor', function (Blueprint $table) {
             $table->id();
-            $table->float('jarak');
+            $table->float('tinggi');
             $table->float('ph');
             $table->float('kekeruhan');
             $table->float('suhu');

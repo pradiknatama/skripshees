@@ -25,3 +25,6 @@ Route::get('/fresh_suhu', [sensorControl::class, 'fresh_suhu']);
 Route::get('/fresh_keruh', [sensorControl::class, 'fresh_keruh']);
 Route::get('/fresh_tinggi', [sensorControl::class, 'fresh_tinggi']);
 Route::get('/fresh_ph', [sensorControl::class, 'fresh_ph']);
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

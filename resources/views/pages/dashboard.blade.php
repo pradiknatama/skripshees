@@ -18,31 +18,31 @@
         <div class="col-12">
             <div class="row">
                 <div class="col-md-3 col-12">
-                    <div class="card mb-3" >
+                    <div class="card mb-3" style="margin-bottom:10px;" >
                         <div class="card-body text-center">
                           <!-- <i class='bx bx-dollar-circle bx-lg'></i> -->
-                          <h5 class="card-title tex">pH</h5>
-                          <p class="card-text" id="ceksensor"><span id="ph"></span></p>
+                          <h5 class="card-title tex">Kekeruhan</h5>
+                          <p class="card-text" id="ceksensor"><span id="keruh"></span></p>
                         </div>
                       </div>
                 </div>
                 <div class="col-md-3 col-12">
-                    <div class="card mb-3" >
+                    <div class="card mb-3"  style="margin-bottom:10px;" >
                         <div class="card-body text-center">
-                          <h5 class="card-title">Kekeruhan</h5>
-                          <p class="card-text"><span id="keruh"></span></p>
+                          <h5 class="card-title">pH</h5>
+                          <p class="card-text"><span id="ph"></span></p>
                         </div>
                       </div>
                 </div>
                 <div class="col-md-3 col-12">
-                    <div class="card  mb-3" >
+                    <div class="card  mb-3" style="margin-bottom:10px;" >
                         <div class="card-body text-center">
                           <h5 class="card-title">Suhu</h5>
-                          <p class="card-text"><span id="suhu"></span>0</p>
+                          <p class="card-text"><span id="suhu"></span></p>
                         </div>
                       </div>
                 </div>
-                <div class="col-md-3 col-12">
+                <div class="col-md-3 col-12 " >
                     <div class="card  mb-3" >
                         <div class="card-body text-center">
                           <h5 class="card-title">Tinggi Air</h5>
@@ -52,13 +52,16 @@
                 </div>
             </div>
             <div class="card mt-5" style="margin-top:50px">
-                <div id="curve_chart" ></div>
+                <div class="curve_chart" id="curve_chart_kekeruhan" ></div>
             </div>
             <div class="card mt-5" style="margin-top:50px">
-                <div id="curve_chart" ></div>
+                <div class="curve_chart" id="curve_chart_ph" ></div>
             </div>
             <div class="card mt-5" style="margin-top:50px">
-                <div id="curve_chart" ></div>
+                <div class="curve_chart" id="curve_chart_suhu" ></div>
+            </div>
+            <div class="card mt-5" style="margin-top:50px">
+                <div class="curve_chart" id="curve_chart_tinggi" ></div>
             </div>
         </div>
     </div>
@@ -142,27 +145,103 @@
 </script>
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<!-- chart -->
     <script type="text/javascript">
-        var jarak1 = <?php echo $jarak1; ?>;
-        console.log(jarak1);
+        var ph = <?php echo $sensor_ph; ?>;
+        console.log(ph);
         google.charts.load('current', {
             'packages': ['corechart']
         });
-        google.charts.setOnLoadCallback(lineChart);
+        google.charts.setOnLoadCallback(SteppedAreaChartpH);
 
-        function lineChart() {
-            var data = google.visualization.arrayToDataTable(jarak1);
+        function SteppedAreaChartpH() {
+            var data = google.visualization.arrayToDataTable(ph);
             var options = {
-                title: 'Jarak',
+                title: 'Grafik pH Air',
                 curveType: 'function',
+                colors: ['#1ea8c7'],
+                pointSize: 10,
                 legend: {
                     position: 'bottom'
                 }
             };
-            var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+            var chart = new google.visualization.AreaChart(document.getElementById('curve_chart_ph'));
             chart.draw(data, options);
+            window.addEventListener('resize', SteppedAreaChartpH, false);
+
         }        
     </script>
+    <script type="text/javascript">
+        var suhu = <?php echo $sensor_suhu; ?>;
+        google.charts.load('current', {
+            'packages': ['corechart']
+        });
+        google.charts.setOnLoadCallback(SteppedAreaChartSuhu);
+
+        function SteppedAreaChartSuhu() {
+            var data = google.visualization.arrayToDataTable(suhu);
+            var options = {
+                title: 'Grafik Suhu Air',
+                curveType: 'function',
+                colors: ['#09829d'],
+                pointSize: 10,
+                legend: {
+                    position: 'bottom'
+                }
+            };
+            var chart = new google.visualization.AreaChart(document.getElementById('curve_chart_suhu'));
+            chart.draw(data, options);
+            window.addEventListener('resize', SteppedAreaChartSuhu, false);
+        }        
+    </script>
+    <script type="text/javascript">
+        var kekeruhan = <?php echo $sensor_kekeruhan; ?>;
+        google.charts.load('current', {
+            'packages': ['corechart']
+        });
+        google.charts.setOnLoadCallback(SteppedAreaChartKekeruhan);
+
+        function SteppedAreaChartKekeruhan() {
+            var data = google.visualization.arrayToDataTable(kekeruhan);
+            var options = {
+                title: 'Grafik Kekeruhan Air',
+                curveType: 'function',
+                colors: ['#09829d'],
+                pointSize: 10,
+                legend: {
+                    position: 'bottom'
+                }
+            };
+            var chart = new google.visualization.AreaChart(document.getElementById('curve_chart_kekeruhan'));
+            chart.draw(data, options);
+            window.addEventListener('resize', SteppedAreaChartKekeruhan, false);
+        }        
+    </script>
+    <script type="text/javascript">
+        var tinggi = <?php echo $sensor_tinggi; ?>;
+        google.charts.load('current', {
+            'packages': ['corechart']
+        });
+        google.charts.setOnLoadCallback(SteppedAreaChartTinggi);
+
+        function SteppedAreaChartTinggi() {
+            var data = google.visualization.arrayToDataTable(tinggi);
+            var options = {
+                title: 'Grafik Persentase Air',
+                curveType: 'function',
+                colors: ['#09829d'],
+                pointSize: 10,
+                legend: {
+                    position: 'bottom'
+                }
+            };
+            var chart = new google.visualization.AreaChart(document.getElementById('curve_chart_tinggi'));
+            chart.draw(data, options);
+            window.addEventListener('resize', SteppedAreaChartTinggi, false);
+        }        
+    </script>
+
   <script>
       let btn =document.querySelector("#btn_navbar");
       let sidebar =document.querySelector(".sidebar");
