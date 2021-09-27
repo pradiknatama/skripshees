@@ -9,7 +9,7 @@
 body{
     position: relative;
     /* min-height: 100vh; */
-    height: 2000px;
+    height: 2500px;
     width: 100%;
     overflow:scroll;
 }
@@ -28,6 +28,7 @@ body{
     padding-left: 10px;
     font-size: 24px;
     color: #0c0d36;
+    /* color:#15b2d5 */
 }
 .sidebar.active{
     width:240px ;
@@ -49,6 +50,13 @@ body{
 }
 .sidebar.active .logo-content .logo{
     opacity: 1;
+}
+.sidebar .logo-content h2{  
+    padding-top: 10px;
+    padding-left: 10px;
+    font-size: 24px;
+    color: #0c0d36;
+    font-weight: bold;
 }
 .sidebar #btn_navbar{
     position: absolute;
@@ -159,7 +167,7 @@ body{
       font-size: 32px;
       color: #0c0d36;
 }
-.card #curve_chart{
+.card .curve_chart{
     padding-left: 150px;
     width: 90%;
     height: 500px;
@@ -176,9 +184,9 @@ body{
     .card .card-text{
         font-size: 20px;
     }
-    .card #curve_chart{
-        padding-left: 0px;
-        width: 100%;
+    .card .curve_chart{
+        padding-left: 100px;
+        width: 90%;
         height: 300px;
     }
   }

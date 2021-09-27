@@ -10,7 +10,7 @@ class sensor extends Model
     protected $table = 'sensor';
 	protected $primaryKey = 'id';
     protected $fillable = [
-        'jarak',
+        'tinggi',
         'ph',
         'kekeruhan',
         'suhu',
