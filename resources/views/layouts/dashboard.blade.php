@@ -50,11 +50,9 @@
                                         @csrf
                 </form>
             </li>
-            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
         </ul>
     </div>
+    
     @yield('content')
 
     <script src="/assets/Bahan Websensor/jquery/jquery.min.js"></script>

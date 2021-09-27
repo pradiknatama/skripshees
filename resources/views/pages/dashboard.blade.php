@@ -2,7 +2,10 @@
 @section('content')
 <div class="page-content">
     <div class="container-fluid">
-        <h3>Dashboard</h3>
+        <div class="row">
+            <div class="pull-left"><h3>Dashboard</h3></div>
+            <div class="pull-right" style="margin-right:30px; "><h3>Hi, {{ Auth::user()->name }}</h3></div>
+        </div>
         <div class="row">
             <div class="col-12">
               <nav aria-label="breadcrumb">
