@@ -28,3 +28,7 @@ Route::get('/fresh_ph', [sensorControl::class, 'fresh_ph']);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
