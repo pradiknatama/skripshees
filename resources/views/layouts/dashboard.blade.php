@@ -28,22 +28,10 @@
                     <span class="title">Dashboard</span>
                 </a>
             </li>
-            <!-- <li class="list">
-                <a href="#">
-                    <i class='bx bx-cube bx-sm' ></i>
-                    <span class="title">Products</span>
-                </a>
-            </li>
             <li class="list">
                 <a href="#">
                     <i class='bx bx-transfer-alt bx-sm' ></i>
-                    <span class="title">Transactions</span>
-                </a>
-            </li>
-            <li class="list">
-                <a href="#">
-                    <i class='bx bx-cog bx-sm' ></i>
-                    <span class="title">Store Setting</span>
+                    <span class="title">Riwayat Pengurasan</span>
                 </a>
             </li>
             <li class="list">
@@ -51,7 +39,20 @@
                     <i class='bx bx-user bx-sm' ></i>
                     <span class="title">My Account</span>
                 </a>
-            </li> -->
+            </li>
+            <li class="list">
+                <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                    <i class='bx bx-log-out'></i>
+                    <span class="title">Log Out</span>
+                </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                </form>
+            </li>
+            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }}
+                                </a>
         </ul>
     </div>
     @yield('content')
