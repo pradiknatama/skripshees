@@ -25,7 +25,7 @@
                         <div class="card-body text-center">
                           <!-- <i class='bx bx-dollar-circle bx-lg'></i> -->
                           <h5 class="card-title tex">Kekeruhan</h5>
-                          <p class="card-text" id="ceksensor"><span id="keruh"></span></p>
+                          <p class="card-text" id="ceksensor"><span id="keruh"> NTU</span></p>
                         </div>
                       </div>
                 </div>
@@ -41,7 +41,7 @@
                     <div class="card  mb-3" style="margin-bottom:10px;" >
                         <div class="card-body text-center">
                           <h5 class="card-title">Suhu</h5>
-                          <p class="card-text"><span id="suhu"></span></p>
+                          <p class="card-text"><span id="suhu"> C</span></p>
                         </div>
                       </div>
                 </div>
@@ -49,7 +49,7 @@
                     <div class="card  mb-3" >
                         <div class="card-body text-center">
                           <h5 class="card-title">Tinggi Air</h5>
-                          <p class="card-text"><span id="tinggi"></span></p>
+                          <p class="card-text"><span id="tinggi"> %</span></p>
                         </div>
                       </div>
                 </div>
@@ -231,9 +231,9 @@
         function SteppedAreaChartTinggi() {
             var data = google.visualization.arrayToDataTable(tinggi);
             var options = {
-                title: 'Grafik Persentase Air',
+                title: 'Grafik Persentase Tinggi Air',
                 curveType: 'function',
-                colors: ['#09829d'],
+                colors: ['#1ea8c7'],
                 pointSize: 10,
                 legend: {
                     position: 'bottom'
