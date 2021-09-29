@@ -6,6 +6,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
+    <title>Skripsiku</title>
     <meta name="description" content="" />
     <meta name="author" content="" />
 
