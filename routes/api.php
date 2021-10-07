@@ -23,5 +23,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //         "Jarak: " . $request->get("Jarak", "n/a") . '°C, ' .
 //     );
 // });
+Route::post('/tes', [sensorControl::class, 'store']);
 Route::get('/up', [sensorControl::class, 'store']);
 // Route::get('/post', [sensorControl::class, 'store']);

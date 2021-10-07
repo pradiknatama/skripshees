@@ -38,14 +38,14 @@ class sensorControl extends Controller
         $suhu=array_merge($title_suhu,$resSuhu);
 
         //kekeruhan
-        $title_kekeruhan[]=['date','Kekeruhan'];
-        $resKekeruhan[] = [];
-        foreach ($sensor as $key => $val) {
-            $resKekeruhan[++$key] = [$val->created_at->format('d M Y h:i:s'), (float)$val->kekeruhan];
-        };
-        array_shift($resKekeruhan);
-        array_multisort($resKekeruhan);
-        $kekeruhan=array_merge($title_kekeruhan,$resKekeruhan);
+        // $title_kekeruhan[]=['date','Kekeruhan'];
+        // $resKekeruhan[] = [];
+        // foreach ($sensor as $key => $val) {
+        //     $resKekeruhan[++$key] = [$val->created_at->format('d M Y h:i:s'), (float)$val->kekeruhan];
+        // };
+        // array_shift($resKekeruhan);
+        // array_multisort($resKekeruhan);
+        // $kekeruhan=array_merge($title_kekeruhan,$resKekeruhan);
 
         //tinggi air
         $title_tinggi[]=['date', 'Tinggi Air'];
@@ -72,11 +72,7 @@ class sensorControl extends Controller
         $sensor->kekeruhan=$request->kekeruhan;
         $sensor->suhu=$request->suhu;
         $sensor->save();
-        dd($sensor);
-        // $jarak=new jarak();
-        // $jarak->Jarak=$request->Jarak;
-        // $jarak->save();
-        // dd($jarak);
+        // dd($sensor);
         return $sensor;
     }
 
@@ -100,4 +96,23 @@ class sensorControl extends Controller
         $tinggi =DB::table('sensor')->orderByDesc('id')->limit(1)->pluck('tinggi');
        return response()->json($tinggi, 200);
     }
+
+    public function fresh_chartkeruh(){
+        $sensor= sensor::orderByDesc('id')->limit(5)->get();
+        //kekeruhan
+        // $title_kekeruhan[]=['date','Kekeruhan'];
+        $resKekeruhan[] = [];
+        foreach ($sensor as $key => $val) {
+            $resKekeruhan[++$key] = [$val->created_at->format('d M Y h:i:s'), (float)$val->kekeruhan];
+        };
+        array_shift($resKekeruhan);
+        array_multisort($resKekeruhan);
+        $kekeruhan=$resKekeruhan;
+        // $kekeruhan=array_merge($title_kekeruhan,$resKekeruhan);
+        // return response()->json_encode($kekeruhan);
+        return response()->json($kekeruhan, 200);
+        // dd(response()->json($kekeruhan));
+        // return response()->json($kekeruhan, 200);
+    }
+
 }
