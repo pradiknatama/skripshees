@@ -10,6 +10,7 @@ class riwayat extends Model
     protected $table = 'riwayat';
 	protected $primaryKey = 'id';
     protected $fillable = [
+        'user_id',
         'aktuator',
     ];
 }
