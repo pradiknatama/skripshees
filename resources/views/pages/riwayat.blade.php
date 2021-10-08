@@ -37,12 +37,14 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <?php $no=1?>
                         @foreach ($riwayat as $row)
                             <tr>
-                                <td>{{ $row->id }}</td>
+                                <td>{{ $no}}</td>
                                 <td>{{ $row->aktuator }}</td>
                                 <td>{{ $row->created_at }}</td>
                             </tr>
+                            <?php $no++?>
                         @endforeach
                     </tbody>
                 </table>
