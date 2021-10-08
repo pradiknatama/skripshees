@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\sensorControl;
+use App\Http\Controllers\adminControl;
 use App\Http\Controllers\akunControl;
 /*
 |--------------------------------------------------------------------------
@@ -34,7 +35,15 @@ Route::get('/fresh_chartkeruh', [sensorControl::class, 'fresh_chartkeruh']);
 Auth::routes();
 
 //user
-Route::get('/riwayat', [sensorControl::class, 'riwayat']);
-Route::get('/edit_akun', [akunControl::class, 'index']);
+Route::middleware('role:2')->group(function(){
+    Route::get('/riwayat', [sensorControl::class, 'riwayat']);
+    Route::get('/edit_akun', [akunControl::class, 'index']);
+});
+
+// admin
+// Route::middleware('role:1')->group(function(){
+//     // Route::get('/user', [adminControl::class, 'index']);
+//     // Route::get('/edit_akun', [akunControl::class, 'index']);
+// });
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
