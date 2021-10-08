@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\sensor;
 use Carbon\Carbon;
-
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 class HomeController extends Controller
 {
     /**
@@ -25,12 +26,22 @@ class HomeController extends Controller
      */
     public function index()
     {
-        // $jarak= jarak::orderByDesc('id')->limit(1)->get();
-        // $jarak1 = sensor::orderByDesc('id')->limit(5)->get();
+        $roles=Auth::user()->roles;
+        switch($roles){
+            case '1' ://admin
+                return $this->dasboardAdmin();
+                break;
+            default:
+                return $this->indexUser();
+        }
+    }
+    protected function dashboardAdmin(){
+        $user= User::get();
+        return view('pages.admin.dashboard',compact('user'));
+    }
+    protected function indexUser(){
         $sensor= sensor::orderByDesc('id')->limit(5)->get();
-        // dd($sensor);
-        // dd($jarak1);
-        // return response()->json($jarak1, 200);
+
         //ph
         $title_ph[]=['date', 'pH'];
         $res[] = [];
@@ -77,4 +88,5 @@ class HomeController extends Controller
                 ->with('sensor_suhu',json_encode($suhu))
                 ->with('sensor_ph',json_encode($ph));
     }
+
 }
