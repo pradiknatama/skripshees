@@ -30,7 +30,10 @@
                     <span class="title">Dashboard</span>
                 </a>
             </li>
-            @if ({{ Auth::user()->roles!=1 }})
+            {{-- @if ()
+            {{ Auth::user()->name }}
+            @endif --}}
+            @if ({{ Auth::user()->roles==2 }})
             <li class="list {{'riwayat'==Request()->path()?'active':''}}">
                 <a href="{{url ('riwayat') }}">
                     {{-- <i class='bx bx-history'></i> --}}
