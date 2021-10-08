@@ -30,13 +30,7 @@
                     <span class="title">Dashboard</span>
                 </a>
             </li>
-            <li class="list {{'riwayat'==Request()->path()?'active':''}}">
-                <a href="{{url ('riwayat') }}">
-                    {{-- <i class='bx bx-history'></i> --}}
-                    <i class='bx bx bx-history ' ></i>
-                    <span class="title">Riwayat Pengurasan</span>
-                </a>
-            </li>
+            
             <li class="list {{'edit_akun'==Request()->path()?'active':''}}">
                 <a href="{{ url('edit_akun') }}">
                     <i class='bx bx-user ' ></i>
