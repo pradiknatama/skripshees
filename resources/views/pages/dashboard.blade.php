@@ -29,7 +29,7 @@
                         <div class="card-body text-center">
                           <!-- <i class='bx bx-dollar-circle bx-lg'></i> -->
                           <h5 class="card-title tex">Kekeruhan</h5>
-                          <p class="card-text" id="ceksensor"><span id="keruh"> </span>NTU</p>
+                          <p class="card-text" id="ceksensor"><span id="keruh"> </span> NTU</p>
                         </div>
                       </div>
                 </div>
