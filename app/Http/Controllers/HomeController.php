@@ -40,7 +40,7 @@ class HomeController extends Controller
         return view('pages.admin.dashboard',compact('user'));
     }
     protected function indexUser(){
-        $sensor= sensor::orderByDesc('id')->limit(5)->get();
+        $sensor= sensor::where('user_id','=',Auth::user()->id)->orderByDesc('id')->limit(5)->get();
 
         //ph
         $title_ph[]=['date', 'pH'];

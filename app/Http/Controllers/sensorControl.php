@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\sensor;
 use App\Models\riwayat;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -69,6 +69,7 @@ class sensorControl extends Controller
     {
         if ($request->aktuator!='') {
             $riwayat=new riwayat();
+            $riwayat->user_id=$request->user_id;
             $riwayat->aktuator=$request->aktuator;
             $riwayat->save();
             return $riwayat;
@@ -78,6 +79,7 @@ class sensorControl extends Controller
         else{
             // dd('p');
             $sensor=new sensor();
+            $sensor->user_id=$request->user_id;
             $sensor->tinggi=$request->tinggi;
             $sensor->ph=$request->ph;
             $sensor->kekeruhan=$request->kekeruhan;
@@ -93,27 +95,27 @@ class sensorControl extends Controller
 
     public function fresh_ph()
     {
-        $ph =DB::table('sensor')->orderByDesc('id')->limit(1)->pluck('ph');
+        $ph =DB::table('sensor')->where('user_id','=',Auth::user()->id)->orderByDesc('id')->limit(1)->pluck('ph');
        return response()->json($ph, 200);
     }
     public function fresh_suhu()
     {
-        $suhu =DB::table('sensor')->orderByDesc('id')->limit(1)->pluck('suhu');
+        $suhu =DB::table('sensor')->where('user_id','=',Auth::user()->id)->orderByDesc('id')->limit(1)->pluck('suhu');
        return response()->json($suhu, 200);
     }
     public function fresh_keruh()
     {
-        $keruh =DB::table('sensor')->orderByDesc('id')->limit(1)->pluck('kekeruhan');
+        $keruh =DB::table('sensor')->where('user_id','=',Auth::user()->id)->orderByDesc('id')->limit(1)->pluck('kekeruhan');
        return response()->json($keruh, 200);
     }
     public function fresh_tinggi()
     {
-        $tinggi =DB::table('sensor')->orderByDesc('id')->limit(1)->pluck('tinggi');
+        $tinggi =DB::table('sensor')->where('user_id','=',Auth::user()->id)->orderByDesc('id')->limit(1)->pluck('tinggi');
        return response()->json($tinggi, 200);
     }
 
     public function fresh_chartkeruh(){
-        $sensor= sensor::orderByDesc('id')->limit(5)->get();
+        $sensor= sensor::where('user_id','=',Auth::user()->id)->orderByDesc('id')->limit(5)->get();
         //kekeruhan
         // $title_kekeruhan[]=['date','Kekeruhan'];
         $resKekeruhan[] = [];
@@ -131,8 +133,8 @@ class sensorControl extends Controller
     }
     public function riwayat()
     {
-        $riwayat=riwayat::get();
-        $status=sensor::get();
+        $riwayat=riwayat::where('user_id','=',Auth::user()->id)->get();
+        $status=sensor::where('user_id','=',Auth::user()->id)->get();
         return view('pages.riwayat',compact('riwayat','status'));
     }
     
