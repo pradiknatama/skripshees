@@ -46,7 +46,7 @@
                                     @if ($row->roles=='1')
                                       Admin
                                     @else
-                                      User
+                                      Client
                                     @endif
                                 </td>
                                 <td>{{ $row->created_at }}</td>
