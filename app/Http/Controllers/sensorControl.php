@@ -133,8 +133,8 @@ class sensorControl extends Controller
     }
     public function riwayat()
     {
-        $riwayat=riwayat::where('user_id','=',Auth::user()->id)->get();
-        $status=sensor::where('user_id','=',Auth::user()->id)->get();
+        $riwayat=riwayat::where('user_id','=',Auth::user()->id)->orderByDesc('id')->limit(10)->get();
+        $status=sensor::where('user_id','=',Auth::user()->id)->orderByDesc('id')->limit(10)->get();
         return view('pages.riwayat',compact('riwayat','status'));
     }
     
