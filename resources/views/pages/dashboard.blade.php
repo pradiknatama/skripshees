@@ -3,8 +3,12 @@
 <div class="page-content">
     <div class="container-fluid">
         <div class="row">
-            <div class="pull-left"><h3>Dashboard</h3></div>
-            <div class="pull-right" style="margin-right:30px; "><h3>Hi, {{ Auth::user()->name }}</h3></div>
+            <div class="col-6">
+                <div class="float-left"><h3>Dashboard</h3></div>
+            </div>
+            <div class="col-6">
+                <div class="float-right" style="margin-right:30px; "><h3>Hi, {{ Auth::user()->name }}</h3></div>
+            </div>
         </div>
         <div class="row">
             <div class="col-12">
@@ -21,7 +25,7 @@
         <div class="col-12">
             <div class="row">
                 <div class="col-md-3 col-12">
-                    <div class="card mb-3" style="margin-bottom:10px;" >
+                    <div class="card mb-4"  >
                         <div class="card-body text-center">
                           <!-- <i class='bx bx-dollar-circle bx-lg'></i> -->
                           <h5 class="card-title tex">Kekeruhan</h5>
@@ -30,7 +34,7 @@
                       </div>
                 </div>
                 <div class="col-md-3 col-12">
-                    <div class="card mb-3"  style="margin-bottom:10px;" >
+                    <div class="card mb-4"   >
                         <div class="card-body text-center">
                           <h5 class="card-title">pH</h5>
                           <p class="card-text"><span id="ph"></span></p>
@@ -38,7 +42,7 @@
                       </div>
                 </div>
                 <div class="col-md-3 col-12">
-                    <div class="card  mb-3" style="margin-bottom:10px;" >
+                    <div class="card  mb-4"  >
                         <div class="card-body text-center">
                           <h5 class="card-title">Suhu</h5>
                           <p class="card-text"><span id="suhu"> C</span></p>
@@ -46,7 +50,7 @@
                       </div>
                 </div>
                 <div class="col-md-3 col-12 " >
-                    <div class="card  mb-3" >
+                    <div class="card  mb-4" >
                         <div class="card-body text-center">
                           <h5 class="card-title">Tinggi Air</h5>
                           <p class="card-text"><span id="tinggi"> %</span></p>
@@ -54,7 +58,7 @@
                       </div>
                 </div>
             </div>
-            <div class="card mt-5" style="margin-top:50px">
+            <div class="card mt-5" >
                 <div class="curve_chart" id="curve_chart_kekeruhan" ></div>
             </div>
             <div class="card mt-5" style="margin-top:50px">

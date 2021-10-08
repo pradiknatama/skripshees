@@ -5,16 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class sensor extends Model
+class riwayat extends Model
 {
-    protected $table = 'sensor';
+    protected $table = 'riwayat';
 	protected $primaryKey = 'id';
     protected $fillable = [
-        'tinggi',
-        'ph',
-        'kekeruhan',
-        'suhu',
-        'status_suhu',
-        'status_kuras',
+        'aktuator',
     ];
 }

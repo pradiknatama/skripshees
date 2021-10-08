@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 // use App\Models\jarak;
 use App\Models\sensor;
+use App\Models\riwayat;
 use Illuminate\Support\Facades\DB;
 
 use Carbon\Carbon;
@@ -37,15 +38,15 @@ class sensorControl extends Controller
         array_multisort($resSuhu);
         $suhu=array_merge($title_suhu,$resSuhu);
 
-        //kekeruhan
-        // $title_kekeruhan[]=['date','Kekeruhan'];
-        // $resKekeruhan[] = [];
-        // foreach ($sensor as $key => $val) {
-        //     $resKekeruhan[++$key] = [$val->created_at->format('d M Y h:i:s'), (float)$val->kekeruhan];
-        // };
-        // array_shift($resKekeruhan);
-        // array_multisort($resKekeruhan);
-        // $kekeruhan=array_merge($title_kekeruhan,$resKekeruhan);
+        // kekeruhan
+        $title_kekeruhan[]=['date','Kekeruhan'];
+        $resKekeruhan[] = [];
+        foreach ($sensor as $key => $val) {
+            $resKekeruhan[++$key] = [$val->created_at->format('d M Y h:i:s'), (float)$val->kekeruhan];
+        };
+        array_shift($resKekeruhan);
+        array_multisort($resKekeruhan);
+        $kekeruhan=array_merge($title_kekeruhan,$resKekeruhan);
 
         //tinggi air
         $title_tinggi[]=['date', 'Tinggi Air'];
@@ -66,14 +67,28 @@ class sensorControl extends Controller
     }
     public function store(Request $request)
     {
-        $sensor=new sensor();
-        $sensor->tinggi=$request->tinggi;
-        $sensor->ph=$request->ph;
-        $sensor->kekeruhan=$request->kekeruhan;
-        $sensor->suhu=$request->suhu;
-        $sensor->save();
+        if ($request->aktuator!='') {
+            $riwayat=new riwayat();
+            $riwayat->aktuator=$request->aktuator;
+            $riwayat->save();
+            return $riwayat;
+            // dd('c');
+        }
+        // dd($request);
+        else{
+            // dd('p');
+            $sensor=new sensor();
+            $sensor->tinggi=$request->tinggi;
+            $sensor->ph=$request->ph;
+            $sensor->kekeruhan=$request->kekeruhan;
+            $sensor->suhu=$request->suhu;
+            $sensor->status_kuras=$request->status_kuras;
+            $sensor->status_suhu=$request->status_suhu;
+            $sensor->save();
+            return $sensor;
+        }
         // dd($sensor);
-        return $sensor;
+        // return $sensor;
     }
 
     public function fresh_ph()
@@ -114,5 +129,11 @@ class sensorControl extends Controller
         // dd(response()->json($kekeruhan));
         // return response()->json($kekeruhan, 200);
     }
-
+    public function riwayat()
+    {
+        $riwayat=riwayat::get();
+        $status=sensor::get();
+        return view('pages.riwayat',compact('riwayat','status'));
+    }
+    
 }
