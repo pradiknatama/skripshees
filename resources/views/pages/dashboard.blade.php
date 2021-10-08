@@ -29,7 +29,7 @@
                         <div class="card-body text-center">
                           <!-- <i class='bx bx-dollar-circle bx-lg'></i> -->
                           <h5 class="card-title tex">Kekeruhan</h5>
-                          <p class="card-text" id="ceksensor"><span id="keruh"> NTU</span></p>
+                          <p class="card-text" id="ceksensor"><span id="keruh"> </span>NTU</p>
                         </div>
                       </div>
                 </div>
@@ -45,7 +45,7 @@
                     <div class="card  mb-4"  >
                         <div class="card-body text-center">
                           <h5 class="card-title">Suhu</h5>
-                          <p class="card-text"><span id="suhu"> C</span></p>
+                          <p class="card-text"><span id="suhu"></span> C</p>
                         </div>
                       </div>
                 </div>
@@ -53,7 +53,7 @@
                     <div class="card  mb-4" >
                         <div class="card-body text-center">
                           <h5 class="card-title">Tinggi Air</h5>
-                          <p class="card-text"><span id="tinggi"> %</span></p>
+                          <p class="card-text"><span id="tinggi"></span> %</p>
                         </div>
                       </div>
                 </div>
