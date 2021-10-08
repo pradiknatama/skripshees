@@ -68,11 +68,5 @@
         );
     } );
 </script>
-<script type="text/javascript">
-    $(document).ready( function () {
-        $('#myTable1').DataTable(
-            // {searching: false, }
-        );
-    } );
-</script>
+
 @endpush

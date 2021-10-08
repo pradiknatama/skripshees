@@ -29,7 +29,7 @@ class HomeController extends Controller
         $roles=Auth::user()->roles;
         switch($roles){
             case '1' ://admin
-                return $this->dasboardAdmin();
+                return $this->dashboardAdmin();
                 break;
             default:
                 return $this->indexUser();
