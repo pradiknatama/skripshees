@@ -61,14 +61,15 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <?php $no1=1?>
                         @foreach ($status as $row)
                             <tr>
-                                <td>{{ $no }}</td>
+                                <td>{{ $no1 }}</td>
                                 <td>{{ $row->status_kuras }}</td>
                                 <td>{{ $row->status_suhu}}</td>
                                 <td>{{ $row->created_at }}</td>
                             </tr>
-                            <?php $no++?>
+                            <?php $no1++?>
                         @endforeach
                     </tbody>
                 </table>
