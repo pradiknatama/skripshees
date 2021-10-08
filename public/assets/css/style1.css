@@ -5,13 +5,15 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
+
 }
 body{
     position: relative;
     /* min-height: 100vh; */
-    height: 2500px;
+    height: 2550px;
     width: 100%;
-    overflow:scroll;
+
+    /* overflow:scroll; */
 }
 .sidebar{
     position: fixed;
@@ -105,6 +107,7 @@ body{
     color: black;
 }
 .sidebar .title{
+    font-size: 14px;
     opacity: 0;
     pointer-events: none;
 }
@@ -173,6 +176,10 @@ body{
     height: 500px;
     border-radius: 10px;
 }
+.card-normal{
+    border-radius: 0;
+    padding:20px;
+}
 #curve_chart{
     /* padding: 10px; */
 }
@@ -180,6 +187,9 @@ body{
 @media(max-width:991px){
     body{
         height: 1350px;
+    }
+    h3{
+        font-size: 16px;
     }
     .card .card-text{
         font-size: 20px;

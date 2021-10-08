@@ -6,10 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
- <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
-    <link rel="stylesheet" type="text/css" href="{{asset('/assets/vendor/bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+    {{-- <link rel="stylesheet" type="text/css" href="{{asset('/assets/vendor/bootstrap/css/bootstrap.min.css') }}"> --}}
     <link rel="stylesheet" type="text/css" href="{{asset('/assets/css/style1.css')}}">
-    
+    @stack('prepend-style')
+    @stack('addon-style')
     <!-- {{-- <link rel="icon" type="image/png" sizes="96x96" href="/assets/img/logo/Logo Header banget.png"> --}} -->
 </head>
 <body>
@@ -19,24 +21,25 @@
                 {{-- <img src="/assets/img/logo/Logo Header.png" class="my-4" style="max-width:120px" alt="" /> --}}
                 <h2>KOLAMKU</h2>
             </div>
-            <i class="bx bx-menu bx-sm" id="btn_navbar"></i>
+            <i class="bx bx-menu " id="btn_navbar"></i>
         </div>
         <ul class="nav_list">
-            <li class="list active">
-                <a href="#">
-                    <i class='bx bx-home bx-sm'></i>
+            <li class="list  {{'/'==Request()->path()?'active':''}}">
+                <a href="{{ url('/') }}">
+                    <i class='bx bx-home '></i>
                     <span class="title">Dashboard</span>
                 </a>
             </li>
-            <li class="list">
-                <a href="#">
-                    <i class='bx bx-transfer-alt bx-sm' ></i>
+            <li class="list {{'riwayat'==Request()->path()?'active':''}}">
+                <a href="{{url ('riwayat') }}">
+                    {{-- <i class='bx bx-history'></i> --}}
+                    <i class='bx bx bx-history ' ></i>
                     <span class="title">Riwayat Pengurasan</span>
                 </a>
             </li>
-            <li class="list">
-                <a href="#">
-                    <i class='bx bx-user bx-sm' ></i>
+            <li class="list {{'edit_akun'==Request()->path()?'active':''}}">
+                <a href="{{ url('edit_akun') }}">
+                    <i class='bx bx-user ' ></i>
                     <span class="title">My Account</span>
                 </a>
             </li>
@@ -58,6 +61,26 @@
     <script src="/assets/Bahan Websensor/jquery/jquery.min.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script>
+        let btn =document.querySelector("#btn_navbar");
+        let sidebar =document.querySelector(".sidebar");
+        
+        btn.onclick =function(){
+            sidebar.classList.toggle("active");
+        }
+  
+        // let list = document.querySelectorAll('.list');
+        // for(let i=0; i<list.length; i++){
+        //     list[i].onclick=function(){
+        //         let j=0;
+        //         while(j<list.length){
+        //             list[j++].className='list';
+        //         }
+        //         list[i].className = 'list active';
+        //     }   
+        // }
+  
+    </script>
     @stack('prepend-script')
     @stack('addon-script')
 
