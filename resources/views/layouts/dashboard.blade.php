@@ -40,14 +40,14 @@
             <li class="list {{'edit_akun'==Request()->path()?'active':''}}">
                 <a href="{{ url('edit_akun') }}">
                     <i class='bx bx-user ' ></i>
-                    <span class="title">My Account</span>
+                    <span class="title">Akun Saya</span>
                 </a>
             </li>
             <li class="list">
                 <a href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                     <i class='bx bx-log-out'></i>
-                    <span class="title">Log Out</span>
+                    <span class="title">Keluar</span>
                 </a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
@@ -60,7 +60,9 @@
 
     <script src="/assets/Bahan Websensor/jquery/jquery.min.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+
     <script>
         let btn =document.querySelector("#btn_navbar");
         let sidebar =document.querySelector(".sidebar");
