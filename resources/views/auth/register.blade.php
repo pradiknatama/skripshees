@@ -32,7 +32,7 @@
                   @enderror
               </div>
             <div class="form-group">
-              <label for="exampleInputPassword1">E-mail Address</label>
+              <label for="exampleInputPassword1">E-mail</label>
               <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="E-Mail Address">
 
               {{--Tambahan default laravel--}}
@@ -54,7 +54,7 @@
               </div>
 
               <div class="form-group">
-                  <label for="exampleInputPassword1">Confirm Password</label>
+                  <label for="exampleInputPassword1">Konfirmasi Password</label>
                   <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="Confirm Password">
 
                   {{--Tambahan default laravel--}}
@@ -64,67 +64,11 @@
                           </span>
                   @enderror
               </div>
-                {{-- <div class="form-group">
-                  <label>Store</label>
-                  <p class="text-muted">
-                    Apakah anda juga ingin membuka toko?
-                  </p>
-                  <div
-                    class="custom-control custom-radio custom-control-inline"
-                  >
-                    <input
-                      class="custom-control-input"
-                      type="radio"
-                      name="is_store_open"
-                      id="openStoreTrue"
-                      v-model="is_store_open"
-                      :value="true"
-                    />
-                    <label class="custom-control-label" for="openStoreTrue"
-                      >Iya, boleh</label
-                    >
-                  </div>
-                  <div
-                    class="custom-control custom-radio custom-control-inline"
-                  >
-                    <input
-                      class="custom-control-input"
-                      type="radio"
-                      name="is_store_open"
-                      id="openStoreFalse"
-                      v-model="is_store_open"
-                      :value="false"
-                    />
-                    <label
-                      makasih
-                      class="custom-control-label"
-                      for="openStoreFalse"
-                      >Enggak, makasih</label
-                    >
-                  </div>
-                </div>
-                <div class="form-group" v-if="is_store_open">
-                  <label for="exampleInputEmail1">Nama Toko</label>
-                            <input id="nama_toko" type="text" class="form-control @error('nama_toko') is-invalid @enderror" name="nama_toko" value="{{ old('nama_toko') }}" required autocomplete="nama_toko" placeholder="Nama Toko" autofocus> --}}
-
-                            {{--Tambahan default laravel--}}
-                            {{-- @error('nama_toko')
-                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                            @enderror
-                </div>
-                <div class="form-group" v-if="is_store_open">
-                  <label>Kategori</label>
-                  <select name="category" class="form-control">
-                    <option value="" disabled>Select Category</option>
-                  </select>
-                </div> --}}
                 <button type="submit" class="btn btn-success btn-block mt-4">
-                  {{ __('Register') }}
+                  {{ __('Daftar') }}
               </button>
                 <button type="submit" class="btn btn-signup btn-block mt-2">
-                 <a href="/login">Back to Sign In</a> 
+                 <a href="/login">Kembali ke Login</a> 
                 </button>
               </form>
             </div>

@@ -7,7 +7,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-6">
-                <div class="float-left"><h3>Dashboard</h3></div>
+                <div class="float-left"><h3>Riwayat Pengurasan</h3></div>
             </div>
             <div class="col-6">
                 <div class="float-right" style="margin-right:30px; "><h3>Hi, {{ Auth::user()->name }}</h3></div>
@@ -17,7 +17,7 @@
             <div class="col-12">
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                  <li class="breadcrumb-item active"><a href="/">Home</a></li>
+                  {{-- <li class="breadcrumb-item active"><a href="/">Home</a></li> --}}
                   <!-- <li class="breadcrumb-item active" aria-current="page">
                     Cart
                   </li> -->
@@ -83,7 +83,6 @@
 <script type="text/javascript">
     $(document).ready( function () {
         $('#myTable').DataTable(
-            // {searching: false, }
         );
     } );
 </script>

@@ -37,7 +37,8 @@ Auth::routes();
 //user
 Route::middleware('role:2')->group(function(){
     Route::get('/riwayat', [sensorControl::class, 'riwayat']);
-    Route::get('/edit_akun', [akunControl::class, 'index']);
+    Route::get('/edit_akun', [akunControl::class, 'index'])->name('edit_akun');
+    Route::post('/edit_akun/{id}', [akunControl::class, 'update'])->name('change.password');
 });
 
 // admin
