@@ -33,18 +33,19 @@ class akunControl extends Controller
                 'new_password.min' => 'Password Minimal 8 karakter ',
                 'new_confirm_password.same'=>'Konfirmasi Password baru harus sesuai'
             ]);
+            $user['password'] = Hash::make($request->new_password);   
         }
         else{
             $request->validate([
                 'name' => ['required', 'string', 'max:255'],
             ]);
         }
-        // dd($data);
-        $user->update($data);
         $user['name']   = $request->input('name');
-        $user['password'] = Hash::make($request->new_password);        
+        if ($request->current_password) {
+            
+        }     
         // dd($user);
-        $user->update();
+        $user->update($data);
         
    
         // $p=User::find(auth()->user()->id)->update(['password'=> Hash::make($request->new_password)]);
