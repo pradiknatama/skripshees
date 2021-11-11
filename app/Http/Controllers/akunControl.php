@@ -40,10 +40,7 @@ class akunControl extends Controller
                 'name' => ['required', 'string', 'max:255'],
             ]);
         }
-        $user['name']   = $request->input('name');
-        if ($request->current_password) {
-            
-        }     
+        $user['name']   = $request->input('name');  
         // dd($user);
         $user->update($data);
         
