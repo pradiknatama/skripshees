@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="/index/css/body.css">
     <link rel="stylesheet" href="/index/css/responsive.css">
     
-    <title>Landing Page 8</title>
+    <title>KOLAMKU</title>
 </head>
 
 <body>
