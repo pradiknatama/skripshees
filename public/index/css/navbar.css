@@ -1,0 +1,30 @@
+.bg-custom{
+    background-color: #fff !important;
+    transition: 0.3s;
+    border: 1px solid #8153F0;
+    color: #8153F0 !important;
+}
+
+.bg-custom:hover {
+    background-color:#8153F0 !important;
+    border: 1px solid rgba(0, 0, 0, 0);
+    color: #fff !important;
+  }
+
+.bg-active{
+    background-color: #fff !important;
+    transition: 0.3s;
+    border: 0px;
+    color: #8153F0 !important;
+}
+span{
+    font-size: 32px;
+    font-weight: bold;
+}
+span.warna{
+    
+    color: #8153F0
+}
+  .navbar{
+      width: 100%;
+  }

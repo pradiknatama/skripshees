@@ -23,8 +23,10 @@ use App\Http\Controllers\akunControl;
 //     return view('pages.dashboard');
 // });    
 // Route::get('/tes', [sensorControl::class, 'index'])->name('dashboard');
-
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
+Route::get('/', function () {
+    return view('layouts.index');
+});
+// Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/fresh_suhu', [sensorControl::class, 'fresh_suhu']);
 Route::get('/fresh_keruh', [sensorControl::class, 'fresh_keruh']);

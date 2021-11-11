@@ -15,7 +15,7 @@
             </div>
             <div class="col-lg-5">
               <h2>
-                Monitoring kolam, <br />
+                Monitoring Kolam Ikan, <br />
                 menjadi lebih mudah
               </h2>
               <form method="POST" action="{{ route('login') }}">

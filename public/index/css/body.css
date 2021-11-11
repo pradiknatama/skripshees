@@ -1,0 +1,63 @@
+body{
+  background-image: url("../assets/vector-bg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  
+}
+
+.desc{
+    max-width: 400px;
+    font-size: 24px;
+    text-align: justify;
+}
+
+.tebel-banget {
+  font-weight: 900;
+}
+h1.tebel-sedang{
+  font-size: 48px;
+}
+.tebel-sedang {
+  font-weight: bold;
+}
+
+.button {
+    background-image: linear-gradient(to right, #594AD9 0%, #8153F0 51%);
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    transition: 0.3s;
+  }
+  
+  .button:hover {
+    background-image: linear-gradient(to right, #4d41bb 0%, #6c45c5 51%);
+    color: white;
+  }
+  
+
+.gambar{
+  display: none;
+}
+
+.img{
+  width: 700px;
+  z-index: -1;
+}
+
+.link{
+  color: gray;
+  transition: 0.3s;
+}
+
+.link:hover{
+  color: #8153F0;
+}
+
+
+
+
+
+

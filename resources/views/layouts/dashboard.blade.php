@@ -19,7 +19,7 @@
         <div class="logo-content">
             <div class="logo">
                 {{-- <img src="/assets/img/logo/Logo Header.png" class="my-4" style="max-width:120px" alt="" /> --}}
-                <h2>KOLAMKU</h2>
+                <h2><span>KOLA<span style="color: #8153F0">MKU</span></span></h2>
             </div>
             <i class="bx bx-menu " id="btn_navbar"></i>
         </div>
