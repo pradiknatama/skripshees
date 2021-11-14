@@ -24,8 +24,8 @@
             <i class="bx bx-menu " id="btn_navbar"></i>
         </div>
         <ul class="nav_list">
-            <li class="list  {{'/'==Request()->path()?'active':''}}">
-                <a href="{{ url('/') }}">
+            <li class="list  {{'/home'==Request()->path()?'active':''}}">
+                <a href="{{ url('/home') }}">
                     <i class='bx bx-home '></i>
                     <span class="title">Dashboard</span>
                 </a>
