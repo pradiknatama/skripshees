@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 // use App\Models\jarak;
 use App\Models\sensor;
 use App\Models\riwayat;
+use App\Models\suhu;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
@@ -137,5 +138,25 @@ class sensorControl extends Controller
         $status=sensor::where('user_id','=',Auth::user()->id)->orderByDesc('id')->get();
         return view('pages.riwayat',compact('riwayat','status'));
     }
-    
+    public function kontrol_suhu(){
+        $suhu=suhu::where('user_id','=',Auth::user()->id)->first();
+        return view('pages.kontrol_suhu',compact('suhu'));
+    }
+    public function update_suhu(Request $request, $id){
+        $data=$request->all();
+
+        $suhu=suhu::where('id','=',Auth::user()->id)->first();
+        $request->validate([
+            'suhu_min' => ['required', 'numeric'],
+            'suhu_max' => ['required', 'numeric'],
+        ]);
+        $suhu['suhu_min']=$request->input('suhu_min');
+        $suhu['suhu_max']=$request->input('suhu_max');
+        $suhu->update($data);
+        return redirect()->back();
+    }
+    public function suhu_api(Request $request, $id){
+        $tes=suhu::select('suhu_min','suhu_max')->where('user_id','=', $id)->first();
+        return response()->json($tes);
+    }
 }
