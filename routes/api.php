@@ -25,4 +25,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 // });
 Route::post('/tes', [sensorControl::class, 'store']);
 Route::get('/up', [sensorControl::class, 'store']);
+Route::get('/suhu/{id}', [sensorControl::class, 'suhu_api']);
+
 // Route::get('/post', [sensorControl::class, 'store']);

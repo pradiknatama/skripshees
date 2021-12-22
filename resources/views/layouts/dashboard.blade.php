@@ -30,6 +30,13 @@
                     <span class="title">Dashboard</span>
                 </a>
             </li>
+            <li class="list {{'kontrol_suhu'==Request()->path()?'active':''}}">
+                <a href="{{url ('kontrol_suhu') }}">
+                    {{-- <i class='bx bx-history'></i> --}}
+                    <i class='bx bx bx-cog ' ></i>
+                    <span class="title">Setting Parameter</span>
+                </a>
+            </li>
             <li class="list {{'riwayat'==Request()->path()?'active':''}}">
                 <a href="{{url ('riwayat') }}">
                     {{-- <i class='bx bx-history'></i> --}}
