@@ -13,12 +13,9 @@ use Illuminate\Http\Request;
 class sensorControl extends Controller
 {
     public function index(){
-        // $jarak= jarak::orderByDesc('id')->limit(1)->get();
-        // $jarak1 = sensor::orderByDesc('id')->limit(5)->get();
+
         $sensor= sensor::orderByDesc('id')->limit(5)->get();
-        // dd($sensor);
-        // dd($jarak1);
-        // return response()->json($jarak1, 200);
+
         //ph
         $title_ph[]=['date', 'pH'];
         $res[] = [];
@@ -64,7 +61,7 @@ class sensorControl extends Controller
                 ->with('sensor_kekeruhan',json_encode($kekeruhan))
                 ->with('sensor_suhu',json_encode($suhu))
                 ->with('sensor_ph',json_encode($ph));
-        // return view('pages.dashboard',compact('jarak1'));
+
     }
     public function store(Request $request)
     {
@@ -74,11 +71,11 @@ class sensorControl extends Controller
             $riwayat->aktuator=$request->aktuator;
             $riwayat->save();
             return $riwayat;
-            // dd('c');
+
         }
-        // dd($request);
+
         else{
-            // dd('p');
+
             $sensor=new sensor();
             $sensor->user_id=$request->user_id;
             $sensor->tinggi=$request->tinggi;
@@ -90,8 +87,7 @@ class sensorControl extends Controller
             $sensor->save();
             return $sensor;
         }
-        // dd($sensor);
-        // return $sensor;
+
     }
 
     public function fresh_ph()
@@ -118,7 +114,7 @@ class sensorControl extends Controller
     public function fresh_chartkeruh(){
         $sensor= sensor::where('user_id','=',Auth::user()->id)->orderByDesc('id')->limit(5)->get();
         //kekeruhan
-        // $title_kekeruhan[]=['date','Kekeruhan'];
+
         $resKekeruhan[] = [];
         foreach ($sensor as $key => $val) {
             $resKekeruhan[++$key] = [$val->created_at->format('d M Y h:i:s'), (float)$val->kekeruhan];
@@ -126,11 +122,9 @@ class sensorControl extends Controller
         array_shift($resKekeruhan);
         array_multisort($resKekeruhan);
         $kekeruhan=$resKekeruhan;
-        // $kekeruhan=array_merge($title_kekeruhan,$resKekeruhan);
-        // return response()->json_encode($kekeruhan);
+
         return response()->json($kekeruhan, 200);
-        // dd(response()->json($kekeruhan));
-        // return response()->json($kekeruhan, 200);
+
     }
     public function riwayat()
     {
