@@ -18,11 +18,9 @@ class akunControl extends Controller
     }
     public function update(Request $request, $id){
         $data=$request->all();
-        
-        
         $user= User::where('id','=',Auth::user()->id)->first();
         if ($request->current_password) {
-            // dd('aaa');
+
             $request->validate([
                 'name' => ['required', 'string', 'max:255'],
                 'current_password' => ['required', new MatchOldPassword],
@@ -41,12 +39,9 @@ class akunControl extends Controller
             ]);
         }
         $user['name']   = $request->input('name');  
-        // dd($user);
+
         $user->update($data);
-        
-   
-        // $p=User::find(auth()->user()->id)->update(['password'=> Hash::make($request->new_password)]);
-        // dd($p);
+
         return redirect()->route('edit_akun')->with('success', 'Ubah Akun Berhasil.');;
     }
 }
